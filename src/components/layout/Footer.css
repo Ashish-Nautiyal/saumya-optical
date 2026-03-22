@@ -1,0 +1,13 @@
+.footer {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.footer-bottom {
+  background-color: var(--color-primary-light);
+  padding: 1.5rem 0;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
