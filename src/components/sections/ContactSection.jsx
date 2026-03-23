@@ -24,7 +24,7 @@ const ContactSection = () => {
       icon: <WhatsAppIcon />,
       label: language === 'hi' ? 'व्हाट्सएप' : 'WhatsApp',
       value: language === 'hi' ? 'व्हाट्सएप करें' : 'WhatsApp Us',
-      link: 'https://wa.me/918979216443',
+      link: 'https://wa.me/919997270585',
       color: 'whatsapp',
     },
   ];
