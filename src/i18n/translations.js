@@ -45,6 +45,10 @@ export const translations = {
     // Products
     productsHeading: 'Our Eyewear Collection',
     productsSubheading: 'Quality eyewear for every lifestyle and budget.',
+    // Gallery
+    galleryTag: 'Gallery',
+    galleryHeading: 'Our Store Gallery',
+    gallerySubheading: 'Take a virtual tour of our modern optical store featuring latest eyewear collections.',
     // About
     aboutTag: 'Discover Saumya Opticals',
     aboutHeading: 'Your Trusted Partner in Vision Care',
@@ -113,6 +117,10 @@ export const translations = {
     // Products
     productsHeading: 'हमारा चश्मा संग्रह',
     productsSubheading: 'हर जीवनशैली और बजट के लिए गुणवत्तापूर्ण चश्मे।',
+    // Gallery
+    galleryTag: 'गैलरी',
+    galleryHeading: 'हमारी शॉप गैलरी',
+    gallerySubheading: 'नवीनतम चश्मा संग्रह के साथ हमारे आधुनिक ऑप्टिकल स्टोर का आभासी दौरा लें।',
     // About
     aboutTag: 'सौम्या ऑप्टिकल्स की खोज करें',
     aboutHeading: 'दृष्टि देखभाल में आपका विश्वसनीय साथी',

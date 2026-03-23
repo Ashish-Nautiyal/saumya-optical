@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { ArrowRight } from 'lucide-react';
 import HeroSection from '../components/sections/HeroSection';
+import GallerySection from '../components/sections/GallerySection';
 
 function Home() {
   const { language } = useLanguage();
@@ -80,6 +81,7 @@ function Home() {
           </div>
         </div>
       </section>
+      <GallerySection />
     </div>
   );
 }
