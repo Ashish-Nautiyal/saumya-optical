@@ -1,60 +1,97 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { Cpu, Award, ShieldCheck, Tag } from 'lucide-react';
+import { Award, Star, Clock } from 'lucide-react';
 import './AboutSection.css';
 
-const features = [
-  { icon: <Cpu size={20} />,        key: 'aboutFeature1' },
-  { icon: <Award size={20} />,      key: 'aboutFeature2' },
-  { icon: <ShieldCheck size={20} />, key: 'aboutFeature3' },
-  { icon: <Tag size={20} />,         key: 'aboutFeature4' },
-];
-
 const AboutSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = sectionRef.current?.querySelectorAll('.observe-fade');
+    elements?.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="about" className="about">
+    <section id="about" className="about" ref={sectionRef}>
+      <div className="about-bg-shapes">
+        <div className="shape-circle shape-1"></div>
+        <div className="shape-circle shape-2"></div>
+      </div>
+      
       <div className="container">
-
-        {/* Header */}
-        <div className="about-header">
-          <p className="section-label">{t('aboutTag')}</p>
-          <h2 className="section-title">{t('aboutHeading')}</h2>
-          <div className="title-underline"></div>
+        <div className="about-header observe-fade">
+          <span className="about-tag">{language === 'hi' ? 'हमारे बारे में' : 'About Us'}</span>
+          <h2 className="about-title">{t('aboutHeading')}</h2>
         </div>
 
-        {/* Two-column text area */}
-        <div className="about-text-grid">
-          <p className="about-para">{t('aboutP1')}</p>
-          <p className="about-para">{t('aboutP2')}</p>
-        </div>
-
-        {/* Doctor card */}
-        <div className="doctor-card">
-          <div className="doctor-avatar">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="24" cy="18" r="10" fill="#cbd5e1"/>
-              <path d="M4 44c0-11 9-18 20-18s20 7 20 18" fill="#cbd5e1"/>
-            </svg>
-          </div>
-          <div className="doctor-info">
-            <span className="doctor-name">Dr. Vijay Nautiyal</span>
-            <span className="doctor-title">नेत्र विशेषज्ञ · Eye Specialist</span>
-          </div>
-        </div>
-
-        {/* 4 feature cards */}
-        <div className="about-features">
-          {features.map(({ icon, key }, i) => (
-            <div key={i} className="feature-card">
-              <div className="feature-icon">{icon}</div>
-              <h3 className="feature-title">{t(`${key}Title`)}</h3>
-              <p className="feature-desc">{t(`${key}Desc`)}</p>
+        <div className="about-main">
+          <div className="about-content">
+            <div className="about-text-block">
+              <h3>{language === 'hi' ? 'हमारी कहानी' : 'Our Story'}</h3>
+              <p className="about-text">{t('aboutP1')}</p>
             </div>
-          ))}
+            <div className="about-text-block">
+              <h3>{language === 'hi' ? 'हमारी प्रतिबद्धता' : 'Our Commitment'}</h3>
+              <p className="about-text">{t('aboutP2')}</p>
+            </div>
+          </div>
+
+          <div className="about-doctor">
+            <div className="doctor-card">
+              <div className="doctor-badge">
+                <Award size={16} />
+                <span>{language === 'hi' ? 'विशेषज्ञ' : 'Expert'}</span>
+              </div>
+              <div className="doctor-image">
+                <img src="/doctor.jpeg" alt="Dr. Vijaydeep Nautiyal" />
+              </div>
+              <div className="doctor-info">
+                <h3 className="doctor-name">Dr. Vijaydeep Nautiyal</h3>
+                <span className="doctor-role">
+                  {language === 'hi' ? 'नेत्र विशेषज्ञ · 10+ वर्ष' : 'Ophthalmologist · 10+ Years'}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
 
+        <div className="about-trust observe-fade">
+          <div className="trust-item">
+            <div className="trust-icon">
+              <Star size={24} />
+            </div>
+            <h4>{language === 'hi' ? 'प्रामाणिक ब्रांड' : 'Authentic Brands'}</h4>
+            <p>{language === 'hi' ? 'क्रिज़ल, एस्सिलोर के अधिकृत' : 'Authorized Crizal & Essilor'}</p>
+          </div>
+          <div className="trust-item">
+            <div className="trust-icon">
+              <Award size={24} />
+            </div>
+            <h4>{language === 'hi' ? 'विशेषज्ञ सेवा' : 'Expert Service'}</h4>
+            <p>{language === 'hi' ? 'प्रमाणित ऑप्टोमेट्रिस्ट' : 'Certified optometrist'}</p>
+          </div>
+          <div className="trust-item">
+            <div className="trust-icon">
+              <Clock size={24} />
+            </div>
+            <h4>{language === 'hi' ? 'खुला समय' : 'Working Hours'}</h4>
+            <p>{language === 'hi' ? 'सुबह 9 - रात 8 बजे' : '9 AM - 8 PM daily'}</p>
+          </div>
+        </div>
       </div>
     </section>
   );

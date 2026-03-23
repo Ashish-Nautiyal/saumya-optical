@@ -1,60 +1,61 @@
-import React from 'react';
-import { Phone } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import WhatsAppIcon from '../ui/WhatsAppIcon';
 import './HeroSection.css';
+
+const heroImages = [
+  '/hero-1.jpg',
+  '/hero-2.jpg',
+  '/hero-3.jpg',
+  '/hero-4.jpg',
+  '/hero-5.jpg',
+];
 
 const HeroSection = () => {
   const { t } = useLanguage();
+  const heroRef = useRef(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (hero) {
+      hero.classList.add('animate-in');
+    }
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="hero" id="home">
-      <div className="container hero-content">
-        {/* Text block */}
-        <div className="hero-text">
-          <span className="hero-tag">
-            <span className="hero-tag-dot" />
-            {t('heroTag')}
-          </span>
+    <section className="hero" id="home" ref={heroRef}>
+      <div className="hero-bg">
+        {heroImages.map((img, index) => (
+          <img
+            key={index}
+            src={img}
+            alt=""
+            className={index === currentSlide ? 'active' : ''}
+          />
+        ))}
+        <div className="hero-overlay"></div>
+      </div>
 
-          <h1 className="hero-h1">
-            {t('heroHeadline')}
-            <br />
-            <span className="hero-accent">{t('heroHighlight')}</span>
-          </h1>
+      <div className="hero-shapes">
+        <div className="shape shape-1"></div>
+        <div className="shape shape-2"></div>
+        <div className="shape shape-3"></div>
+      </div>
 
-          <p className="hero-sub">{t('heroSubheadline')}</p>
+      <div className="hero-content">
+        <h1 className="hero-title">
+          {t('heroHeadline')}
+          <span className="hero-accent"> {t('heroHighlight')}</span>
+        </h1>
 
-          <div className="hero-actions">
-            <a href="tel:+918979216443" className="btn btn-primary">
-              <Phone size={18} />
-              {t('heroCallNow')}
-            </a>
-            <a
-              href="https://wa.me/918979216443"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-whatsapp"
-            >
-              <WhatsAppIcon size={18} />
-              {t('heroWhatsAppUs')}
-            </a>
-          </div>
-
-          {/* Trust stats */}
-          <div className="hero-stats">
-            {[
-              [t('heroStat1'), t('heroStat1Label')],
-              [t('heroStat2'), t('heroStat2Label')],
-              [t('heroStat3'), t('heroStat3Label')],
-            ].map(([num, label], i) => (
-              <div key={i} className="hero-stat">
-                <span className="stat-num">{num}</span>
-                <span className="stat-label">{label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+        <p className="hero-desc">{t('heroSubheadline')}</p>
       </div>
     </section>
   );

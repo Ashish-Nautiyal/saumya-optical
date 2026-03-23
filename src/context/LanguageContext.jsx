@@ -5,14 +5,13 @@ const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState(() => {
-    // Default to 'en', but you could try to detect from local storage or browser
     return localStorage.getItem('language') || 'en';
   });
 
   useEffect(() => {
     localStorage.setItem('language', language);
-    // Apply lang to body for font-family changes
     document.body.setAttribute('data-lang', language);
+    document.documentElement.setAttribute('lang', language);
   }, [language]);
 
   const toggleLanguage = () => {

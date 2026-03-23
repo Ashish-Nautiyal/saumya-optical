@@ -1,48 +1,63 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { Activity, Glasses, ShieldCheck } from 'lucide-react';
+import { Scan, Glasses, BadgeCheck } from 'lucide-react';
 import './ServicesSection.css';
 
 const ServicesSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = sectionRef.current?.querySelectorAll('.observe-fade');
+    elements?.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   const services = [
     {
-      id: 1,
-      icon: <Activity size={32} className="text-secondary" />,
+      icon: <Scan size={28} />,
       title: t('servicesEyeTestHeading'),
-      description: t('servicesEyeTestDesc')
+      desc: t('servicesEyeTestDesc'),
     },
     {
-      id: 2,
-      icon: <Glasses size={32} className="text-secondary" />,
+      icon: <Glasses size={28} />,
       title: t('servicesEyewearHeading'),
-      description: t('servicesEyewearDesc')
+      desc: t('servicesEyewearDesc'),
     },
     {
-      id: 3,
-      icon: <ShieldCheck size={32} className="text-secondary" />,
+      icon: <BadgeCheck size={28} />,
       title: t('servicesBrandsHeading'),
-      description: t('servicesBrandsDesc')
-    }
+      desc: t('servicesBrandsDesc'),
+    },
   ];
 
   return (
-    <section className="services">
+    <section id="services" className="services" ref={sectionRef}>
       <div className="container">
         <div className="services-header">
-          <h2 className="section-title">{t('servicesHeading')}</h2>
-          <div className="title-underline"></div>
+          <span className="services-tag">{t('navServices')}</span>
+          <h2 className="services-title">{t('servicesHeading')}</h2>
+          <p className="services-sub">{t('servicesSubheading')}</p>
         </div>
-        
+
         <div className="services-grid">
-          {services.map(service => (
-            <div key={service.id} className="service-card">
-              <div className="service-icon-wrapper">
-                {service.icon}
-              </div>
+          {services.map((service, index) => (
+            <div key={index} className="service-card observe-fade">
+              <div className="service-icon">{service.icon}</div>
               <h3 className="service-title">{service.title}</h3>
-              <p className="service-description">{service.description}</p>
+              <p className="service-desc">{service.desc}</p>
             </div>
           ))}
         </div>

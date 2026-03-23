@@ -8,11 +8,11 @@ export const translations = {
     navContact: 'Contact',
     navCall: 'Call',
     // Hero
-    heroTag: 'Trusted Eye Care Since Day One',
-    heroHeadline: 'See the World in a New Light',
-    heroHighlight: 'Perfect Vision Starts Here',
+    heroTag: '✓ Premium Eye Care Expert',
+    heroHeadline: 'Discover Your Perfect Vision',
+    heroHighlight: 'Expert Care Meets Style',
     heroSubheadline:
-      'At Saumya Opticals, we combine expert eye care with the best eyewear brands. Computerized testing by Dr. Vijay Nautiyal — serving Chinyalisaur and beyond.',
+      'From comprehensive eye exams to the latest in eyewear fashion, we ensure you see the world with clarity and confidence.',
     heroCallNow: 'Call Now',
     heroWhatsAppUs: 'WhatsApp Us',
     heroStat1: '1000+',
@@ -22,35 +22,36 @@ export const translations = {
     heroStat3: '100%',
     heroStat3Label: 'Genuine Products',
     // Services
-    servicesHeading: 'Our Expertise',
-    servicesSubheading: 'Advanced services tailored to your vision needs.',
-    servicesEyeTestHeading: 'Computerized Eye Testing',
+    servicesHeading: 'Professional Eye Care Services',
+    servicesSubheading: 'Comprehensive vision care backed by advanced technology and years of trusted experience.',
+    servicesEyeTestHeading: 'Advanced Eye Examination',
     servicesEyeTestDesc:
-      'Precise digital eye exams conducted by Dr. Vijay Nautiyal to detect vision problems early and accurately.',
-    servicesEyewearHeading: 'Premium Eyewear',
+      'State-of-the-art computerized eye tests by certified optometrist Dr. Vijay Nautiyal for accurate diagnosis and early detection of vision conditions.',
+    servicesEyewearHeading: 'Premium Eyewear Collection',
     servicesEyewearDesc:
-      'Wide collection of high-quality prescription glasses and stylish sunglasses at competitive prices.',
-    servicesBrandsHeading: 'Certified Brands',
+      'Curated selection of high-quality prescription glasses and designer sunglasses from leading brands at competitive prices.',
+    servicesBrandsHeading: 'Authentic Branded Products',
     servicesBrandsDesc:
-      'We stock globally trusted brands including Crizal Drive and Essilor — guaranteed quality.',
+      'Authorized dealer of Crizal, Essilor, and other globally recognized eyewear brands with full warranty support.',
+    // Features
+    servicesFeature1Title: 'Digital Diagnostics',
+    servicesFeature1Desc: 'Advanced computerized testing for precise vision analysis.',
+    servicesFeature2Title: 'Expert Care',
+    servicesFeature2Desc: 'Professional guidance from certified optometrist Dr. Vijay Nautiyal.',
+    servicesFeature3Title: 'Genuine Products',
+    servicesFeature3Desc: '100% authentic branded eyewear with manufacturer warranty.',
+    servicesFeature4Title: 'Best Value',
+    servicesFeature4Desc: 'Competitive pricing with flexible payment options available.',
     // Products
     productsHeading: 'Our Eyewear Collection',
     productsSubheading: 'Quality eyewear for every lifestyle and budget.',
     // About
-    aboutTag: 'Our Story',
-    aboutHeading: 'Vision Care You Can Trust',
+    aboutTag: 'Discover Saumya Opticals',
+    aboutHeading: 'Your Trusted Partner in Vision Care',
     aboutP1:
-      'Saumya Opticals has been a cornerstone of quality eye care in Chinyalisaur. Guided by the expertise of Dr. Vijay Nautiyal (नेत्र विशेषज्ञ), we provide precise computerized eye testing and access to India\'s finest eyewear brands.',
+      'We are committed to delivering exceptional eye care solutions that put your vision first. Based in Chinyalisaur, our clinic combines advanced diagnostic technology with thoughtful, patient-first service to provide accurate eye assessments and personalized treatment plans. We offer high-quality eyewear options, precise lens fitting, and robust aftercare support to ensure lasting comfort and clarity.',
     aboutP2:
-      'We believe clear vision should be accessible to everyone. With a welcoming store environment and dedicated after-sales support, we ensure every customer leaves satisfied.',
-    aboutFeature1Title: 'Computerized Testing',
-    aboutFeature1Desc: 'Accurate digital diagnostics for complete eye health assessment.',
-    aboutFeature2Title: 'Expert Doctor',
-    aboutFeature2Desc: 'Guided by Dr. Vijay Nautiyal, a certified eye care specialist.',
-    aboutFeature3Title: 'Premium Brands',
-    aboutFeature3Desc: 'Crizal, Essilor and more — 100% genuine products guaranteed.',
-    aboutFeature4Title: 'Best Prices',
-    aboutFeature4Desc: 'Competitive pricing without compromising on quality.',
+      'Our dedication to quality and transparency sets us apart. We make professional vision services accessible for every customer through personalized consultations, modern practices, and friendly service. Experience comprehensive care that includes detailed testing, customized recommendations, and support that keeps your vision at its best.',
     // Contact
     contactTag: 'Get In Touch',
     contactHeading: 'We Are Here For You',
@@ -59,9 +60,11 @@ export const translations = {
     contactHoursHeading: 'Business Hours',
     contactHoursDesc: 'Mon – Sun: 9:00 AM – 8:00 PM',
     // Footer
+    footerDesc: 'Precision vision care and premium eyewear in Chinyalisaur. We ensure every customer leaves with perfect vision.',
+    footerQuickLinks: 'Quick Links',
+    footerContactHeading: 'Contact Info',
     footerAddressHeading: 'Address',
-    footerAddress:
-      'Near College Gate, Main Market Chinyalisaur, District-Uttarkashi',
+    footerAddress: 'Near College Gate, Main Market Chinyalisaur, District-Uttarkashi',
     footerRights: '© 2026 Saumya Opticals. All rights reserved.',
   },
   hi: {
@@ -73,11 +76,11 @@ export const translations = {
     navContact: 'संपर्क',
     navCall: 'कॉल करें',
     // Hero
-    heroTag: 'विश्वसनीय नेत्र देखभाल',
-    heroHeadline: 'दुनिया को नई रोशनी में देखें',
-    heroHighlight: 'स्पष्ट दृष्टि यहाँ से शुरू होती है',
+    heroTag: '✓ प्रीमियम नेत्र देखभाल विशेषज्ञ',
+    heroHeadline: 'अपनी आदर्श दृष्टि खोजें',
+    heroHighlight: 'विशेषज्ञ देखभाल शैली से मिलती है',
     heroSubheadline:
-      'सौम्या ऑप्टिकल्स में डॉ. विजय नौटियाल द्वारा कम्प्यूटरीकृत नेत्र जांच और प्रीमियम चश्मे — चिन्यालीसौड़ में आपकी पहली पसंद।',
+      'व्यापक नेत्र परीक्षण से लेकर आंखों के फैशन में नवीनतम तक, हम सुनिश्चित करते हैं कि आप दुनिया को स्पष्टता और आत्मविश्वास के साथ देखें।',
     heroCallNow: 'कॉल करें',
     heroWhatsAppUs: 'व्हाट्सएप करें',
     heroStat1: '1000+',
@@ -87,35 +90,36 @@ export const translations = {
     heroStat3: '100%',
     heroStat3Label: 'असली उत्पाद',
     // Services
-    servicesHeading: 'हमारी विशेषता',
-    servicesSubheading: 'आपकी दृष्टि जरूरतों के अनुसार उन्नत सेवाएं।',
-    servicesEyeTestHeading: 'कम्प्यूटरीकृत नेत्र जांच',
+    servicesHeading: 'पेशेवर नेत्र देखभाल सेवाएं',
+    servicesSubheading: 'उन्नत तकनीक और विश्वसनीय अनुभव पर आधारित व्यापक दृष्टि देखभाल।',
+    servicesEyeTestHeading: 'उन्नत नेत्र परीक्षण',
     servicesEyeTestDesc:
-      'डॉ. विजय नौटियाल द्वारा सटीक डिजिटल नेत्र परीक्षण — दृष्टि समस्याओं को शुरुआत में ही पकड़ें।',
-    servicesEyewearHeading: 'प्रीमियम चश्मे',
+      'प्रमाणित ऑप्टोमेट्रिस्ट डॉ. विजय नौटियाल द्वारा आधुनिक कम्प्यूटरीकृत नेत्र जांच — सटीक निदान और दृष्टि समस्याओं का शीघ्र पता लगाना।',
+    servicesEyewearHeading: 'प्रीमियम चश्मा संग्रह',
     servicesEyewearDesc:
-      'उच्च गुणवत्ता वाले नजर और धूप के चश्मों की विस्तृत श्रृंखला उचित कीमतों पर।',
-    servicesBrandsHeading: 'प्रमाणित ब्रांड',
+      'प्रमुख ब्रांडों से उच्च गुणवत्ता वाले नुस्खा चश्मे और डिज़ाइनर धूप के चश्मे — प्रतिस्पर्धी मूल्य पर।',
+    servicesBrandsHeading: 'प्रामाणिक ब्रांडेड उत्पाद',
     servicesBrandsDesc:
-      'क्रिज़ल ड्राइव और एस्सिलोर सहित विश्व स्तरीय ब्रांड — गुणवत्ता की गारंटी।',
+      'क्रिज़ल, एस्सिलोर और अन्य वैश्विक रूप से मान्यता प्राप्त चश्मा ब्रांडों के अधिकृत विक्रेता — पूर्ण वारंटी सहायता के साथ।',
+    // Features
+    servicesFeature1Title: 'डिजिटल जांच',
+    servicesFeature1Desc: 'सटीक दृष्टि विश्लेषण के लिए उन्नत कम्प्यूटरीकृत परीक्षण।',
+    servicesFeature2Title: 'विशेषज्ञ देखभाल',
+    servicesFeature2Desc: 'प्रमाणित ऑप्टोमेट्रिस्ट डॉ. विजय नौटियाल से पेशेवर मार्गदर्शन।',
+    servicesFeature3Title: 'असली उत्पाद',
+    servicesFeature3Desc: 'निर्माता वारंटी के साथ 100% प्रामाणिक ब्रांडेड चश्मे।',
+    servicesFeature4Title: 'सर्वोत्तम मूल्य',
+    servicesFeature4Desc: 'लचीली भुगतान विकल्पों के साथ प्रतिस्पर्धी मूल्य।',
     // Products
     productsHeading: 'हमारा चश्मा संग्रह',
     productsSubheading: 'हर जीवनशैली और बजट के लिए गुणवत्तापूर्ण चश्मे।',
     // About
-    aboutTag: 'हमारी कहानी',
-    aboutHeading: 'भरोसेमंद नेत्र देखभाल',
+    aboutTag: 'सौम्या ऑप्टिकल्स की खोज करें',
+    aboutHeading: 'दृष्टि देखभाल में आपका विश्वसनीय साथी',
     aboutP1:
-      'सौम्या ऑप्टिकल्स चिन्यालीसौड़ में गुणवत्तापूर्ण नेत्र देखभाल का एक विश्वसनीय नाम है। डॉ. विजय नौटियाल की विशेषज्ञता से हम सटीक कम्प्यूटरीकृत नेत्र परीक्षण और भारत के सर्वोत्तम चश्मे ब्रांड प्रदान करते हैं।',
+      'हम चश्मा और दृष्टि समाधान में उत्कृष्टता के लिए प्रतिबद्ध हैं। चिन्यालीसौर में हमारी सेवा आधुनिक नैदानिक उपकरणों और सहायक, रोगी-केंद्रित अनुभव को एक साथ लाती है। हम व्यापक आंख परीक्षण, व्यक्तिगत दृष्टि योजनाएं और प्रीमियम eyewear विकल्प प्रदान करते हैं ताकि हर ग्राहक को आरामदायक, स्पष्ट दृष्टि मिल सके।',
     aboutP2:
-      'हम मानते हैं कि स्पष्ट दृष्टि सभी के लिए सुलभ होनी चाहिए। हमारे स्वागतयोग्य स्टोर और समर्पित सेवा के साथ, हर ग्राहक संतुष्ट होकर जाता है।',
-    aboutFeature1Title: 'कम्प्यूटरीकृत जांच',
-    aboutFeature1Desc: 'सम्पूर्ण नेत्र स्वास्थ्य के लिए सटीक डिजिटल निदान।',
-    aboutFeature2Title: 'विशेषज्ञ डॉक्टर',
-    aboutFeature2Desc: 'डॉ. विजय नौटियाल, प्रमाणित नेत्र विशेषज्ञ द्वारा मार्गदर्शन।',
-    aboutFeature3Title: 'प्रीमियम ब्रांड',
-    aboutFeature3Desc: 'क्रिज़ल, एस्सिलोर — 100% असली उत्पादों की गारंटी।',
-    aboutFeature4Title: 'सर्वोत्तम मूल्य',
-    aboutFeature4Desc: 'गुणवत्ता से समझौता किए बिना प्रतिस्पर्धी मूल्य।',
+      'हमारी गुणवत्ता और पारदर्शिता की प्रतिबद्धता हर कदम पर दिखती है। हम व्यावसायिक दृष्टि सेवाओं को सुलभ और किफायती बनाते हैं, जिसमें विस्तृत नेत्र परीक्षण, विशेषज्ञ सलाह और मजबूत आफ्टर-केयर शामिल हैं। हमारे साथ, आप एक ऐसी देखभाल का अनुभव करेंगे जो स्पष्ट, आत्मविश्वासी दृष्टि को बनाए रखने में मदद करती है।',
     // Contact
     contactTag: 'संपर्क करें',
     contactHeading: 'हम आपकी सेवा में हैं',
@@ -124,9 +128,11 @@ export const translations = {
     contactHoursHeading: 'व्यापार के घंटे',
     contactHoursDesc: 'सोम – रवि: सुबह 9:00 – रात 8:00 बजे',
     // Footer
+    footerDesc: 'चिन्यालीसौड़ में सटीक नेत्र देखभाल और प्रीमियम चश्मे। हमारा लक्ष्य आपकी स्पष्ट दृष्टि है।',
+    footerQuickLinks: 'त्वरित लिंक',
+    footerContactHeading: 'संपर्क जानकारी',
     footerAddressHeading: 'पता',
-    footerAddress:
-      'निकट कॉलेज गेट, मेन मार्केट चिन्यालीसौड़, जनपद-उत्तरकाशी',
+    footerAddress: 'निकट कॉलेज गेट, मेन मार्केट चिन्यालीसौड़, जनपद-उत्तरकाशी',
     footerRights: '© 2026 सौम्या ऑप्टिकल्स। सर्वाधिकार सुरक्षित।',
   },
 };

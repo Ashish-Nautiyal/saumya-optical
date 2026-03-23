@@ -1,68 +1,88 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Globe, Menu, X } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
-import Logo from '../ui/Logo';
 import './Navbar.css';
 
 const Navbar = () => {
   const { language, toggleLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const isActive = (path) => location.pathname === path;
 
   const navLinks = [
-    { name: t('navHome'), href: '#home' },
-    { name: t('navProducts'), href: '#products' },
-    { name: t('navAbout'), href: '#about' },
-    { name: t('navContact'), href: '#contact' },
+    { name: t('navHome'), path: '/' },
+    { name: t('navServices'), path: '/services' },
+    { name: t('navProducts'), path: '/products' },
+    { name: t('navAbout'), path: '/about' },
+    { name: t('navContact'), path: '/contact' },
   ];
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <div className="navbar-bg"></div>
+      
       <div className="container navbar-content">
-        <Logo />
+        <Link to="/" className="navbar-logo">
+          <img src="/logo.svg" alt="Saumya Optical" className="navbar-logo-img" />
+        </Link>
         
-        {/* Desktop Navigation Links */}
         <div className="nav-links desktop-only">
-          {navLinks.map((link, idx) => (
-            <a key={idx} href={link.href} className="nav-link">
+          {navLinks.map((link) => (
+            <Link 
+              key={link.path} 
+              to={link.path} 
+              className={`nav-link ${isActive(link.path) ? 'active' : ''}`}
+            >
               {link.name}
-            </a>
+            </Link>
           ))}
         </div>
 
         <div className="navbar-actions">
           <button 
-            className="lang-toggle-btn" 
+            className="lang-toggle" 
             onClick={toggleLanguage}
             aria-label="Toggle Language"
           >
-            <Globe size={18} />
-            <span className="lang-text">{language === 'en' ? 'हिन्दी' : 'EN'}</span>
+            <Globe size={16} />
+            <span>{language === 'en' ? 'हिन्दी' : 'EN'}</span>
           </button>
 
           <button 
             className="mobile-menu-btn"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle Menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="mobile-menu">
-          {navLinks.map((link, idx) => (
-            <a 
-              key={idx} 
-              href={link.href} 
+      <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
+        <div className="container">
+          {navLinks.map((link) => (
+            <Link 
+              key={link.path} 
+              to={link.path} 
               className="mobile-nav-link"
               onClick={() => setIsMenuOpen(false)}
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </div>
-      )}
+      </div>
     </nav>
   );
 };

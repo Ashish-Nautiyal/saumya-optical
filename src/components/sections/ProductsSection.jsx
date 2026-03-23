@@ -1,82 +1,109 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
+import { ArrowRight } from 'lucide-react';
 import './ProductsSection.css';
 
-const products = [
+const productShowcase = [
   {
-    image: '/prod-frames.jpg',
-    en: { name: 'Prescription Frames', desc: 'Rimless, full-rim & half-rim — stylish frames for every face shape.', badge: 'Most Popular' },
-    hi: { name: 'नजर के चश्मे', desc: 'हर चेहरे के लिए स्टाइलिश फ्रेम — रिमलेस, फुल-रिम, हाफ-रिम।', badge: 'सबसे लोकप्रिय' },
+    id: 1,
+    mainImage: '/prod-frames.jpg',
+    title: { en: 'Premium Frames Collection', hi: 'प्रीमियम फ्रेम संग्रह' },
+    desc: { en: 'Explore our exclusive collection of designer frames. From classic to contemporary, find the perfect style that complements your personality.', hi: 'हमारे विशेष डिज़ाइनर फ्रेम संग्रह का अन्वेषण करें। क्लासिक से आधुनिक तक, अपने व्यक्तित्व के अनुरूप सही स्टाइल खोजें।' },
+    tag: { en: 'Designer Collection', hi: 'डिज़ाइनर संग्रह' }
   },
   {
-    image: '/prod-sunglasses.jpg',
-    en: { name: 'Sunglasses', desc: 'UV-protected premium sunglasses for fashion, driving & outdoor activities.', badge: 'UV Protection' },
-    hi: { name: 'धूप के चश्मे', desc: 'UV सुरक्षा के साथ प्रीमियम धूप के चश्मे — ड्राइविंग और आउटडोर के लिए।', badge: 'UV सुरक्षा' },
+    id: 2,
+    mainImage: '/prod-sunglasses.jpg',
+    title: { en: 'Sunglasses', hi: 'धूप के चश्मे' },
+    desc: { en: '100% UV protection with premium polarized lenses. Perfect for driving, outdoor adventures, and everyday style.', hi: 'प्रीमियम पोलराइज़्ड लेंस के साथ 100% UV सुरक्षा। ड्राइविंग और आउटडोर के लिए एकदम सही।' },
+    tag: { en: 'UV 400 Protection', hi: 'UV 400 सुरक्षा' }
   },
   {
-    image: '/prod-lenses.jpg',
-    en: { name: 'Contact Lenses', desc: 'Soft daily & monthly lenses for comfortable all-day wear from top brands.', badge: 'Premium Quality' },
-    hi: { name: 'कॉन्टैक्ट लेंस', desc: 'डेली और मंथली लेंस — पूरे दिन आरामदायक पहनावे के लिए।', badge: 'प्रीमियम गुणवत्ता' },
+    id: 3,
+    mainImage: '/prod-lenses.jpg',
+    title: { en: 'Advanced Lenses', hi: 'उन्नत लेंस' },
+    desc: { en: 'Crizal and Essilor coatings with anti-reflective, anti-scratch, and blue light filtering technology.', hi: 'एंटी-रिफ्लेक्टिव, एंटी-स्क्रैच और ब्लू लाइट फ़िल्टरिंग तकनीक के साथ क्रिज़ल और एस्सिलोर कोटिंग।' },
+    tag: { en: 'Crizal & Essilor', hi: 'क्रिज़ल और एस्सिलोर' }
   },
   {
-    image: '/prod-antiglare.jpg',
-    en: { name: 'Anti-Glare Lenses', desc: 'Crizal & Essilor coated lenses — reduce screen glare and protect your eyes.', badge: 'Crizal · Essilor' },
-    hi: { name: 'एंटी-ग्लेयर लेंस', desc: 'क्रिज़ल और एस्सिलोर एंटी-ग्लेयर लेंस — स्क्रीन के लिए आदर्श।', badge: 'क्रिज़ल · एस्सिलोर' },
+    id: 4,
+    mainImage: '/prod-antiglare.jpg',
+    title: { en: 'Anti-Glare Coating', hi: 'एंटी-ग्लेयर कोटिंग' },
+    desc: { en: 'Experience crystal clear vision with our premium anti-glare lenses. Reduces reflections and provides comfortable viewing in all lighting conditions.', hi: 'हमारे प्रीमियम एंटी-ग्लेयर लेंस के साथ क्रिस्टल क्लियर विज़न का अनुभव करें। सभी प्रकाश स्थितियों में आरामदायक देखने का अनुभव।' },
+    tag: { en: 'Clear Vision', hi: 'स्पष्ट दृष्टि' }
   },
   {
-    image: '/prod-kids.jpg',
-    en: { name: 'Kids Eyewear', desc: 'Durable, lightweight & fun frames designed for children\'s safe vision.', badge: 'Safe & Durable' },
-    hi: { name: 'बच्चों के चश्मे', desc: 'बच्चों के लिए मजबूत, हल्के और रंगीन फ्रेम।', badge: 'मजबूत और हल्के' },
+    id: 5,
+    mainImage: '/prod-sports.jpg',
+    title: { en: 'Sports Eyewear', hi: 'स्पोर्ट्स आइवियर' },
+    desc: { en: 'High-performance sports glasses designed for active lifestyles. Impact-resistant lenses with superior grip and comfort.', hi: 'सक्रिय जीवनशैली के लिए डिज़ाइन किए गए हाई-परफॉर्मेंस स्पोर्ट्स चश्मे। बेहतर ग्रिप और आराम के साथ इम्पैक्ट-रेसिस्टेंट लेंस।' },
+    tag: { en: 'Sports Series', hi: 'स्पोर्ट्स सीरीज़' }
   },
   {
-    image: '/prod-sports.jpg',
-    en: { name: 'Sports Eyewear', desc: 'Shockproof wrap-around frames for athletes and active lifestyles.', badge: 'Shockproof' },
-    hi: { name: 'स्पोर्ट्स चश्मे', desc: 'एथलीट्स के लिए रैप-अराउंड स्पोर्ट्स फ्रेम।', badge: 'शॉकप्रूफ' },
+    id: 6,
+    mainImage: '/prod-kids.jpg',
+    title: { en: 'Kids Collection', hi: 'बच्चों का संग्रह' },
+    desc: { en: 'Fun and durable eyewear for kids. Lightweight, comfortable frames designed specifically for young faces.', hi: 'बच्चों के लिए मज़ेदार और टिकाऊ आइवियर। युवा चेहरों के लिए विशेष रूप से डिज़ाइन किए गए हल्के, आरामदायक फ्रेम।' },
+    tag: { en: 'For Kids', hi: 'बच्चों के लिए' }
   },
 ];
 
 const ProductsSection = () => {
   const { t, language } = useLanguage();
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = sectionRef.current?.querySelectorAll('.observe-fade');
+    elements?.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="products" className="products">
+    <section id="products" className="products" ref={sectionRef}>
       <div className="container">
         <div className="products-header">
-          <p className="section-label">{t('productsHeading')}</p>
-          <h2 className="section-title">{t('productsSubheading')}</h2>
-          <div className="title-underline centered"></div>
+          <span className="products-tag">{t('navProducts')}</span>
+          <h2 className="products-title">{t('productsHeading')}</h2>
         </div>
 
-        <div className="products-grid">
-          {products.map((p, i) => {
-            const info = p[language] || p.en;
-            return (
-              <div
-                key={i}
-                className="product-card"
-                style={{ backgroundImage: `url('${p.image}')` }}
-              >
-                {/* dark overlay for text legibility */}
-                <div className="product-overlay"></div>
-
-                <div className="product-content">
-                  <span className="product-badge">{info.badge}</span>
-                  <h3 className="product-name">{info.name}</h3>
-                  <p className="product-desc">{info.desc}</p>
+        <div className="products-showcase">
+          {productShowcase.map((product, index) => (
+            <div 
+              key={product.id} 
+              className={`showcase-card ${index % 2 === 1 ? 'reverse' : ''} observe-fade`}
+            >
+              <div className="showcase-image">
+                <div className="image-frame">
+                  <img src={product.mainImage} alt={product.title[language]} />
                 </div>
+                <div className="image-accent"></div>
               </div>
-            );
-          })}
+              
+              <div className="showcase-content">
+                <span className="showcase-tag">{product.tag[language]}</span>
+                <h3 className="showcase-title">{product.title[language]}</h3>
+                <p className="showcase-desc">{product.desc[language]}</p>
+                <Link to="/contact" className="showcase-link">
+                  {language === 'hi' ? 'संपर्क करें' : 'Contact Us'}
+                  <ArrowRight size={18} />
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
-
-        <p className="products-cta-text">
-          {language === 'hi'
-            ? 'और अधिक जानने के लिए — '
-            : 'Interested in any of these? '}
-          <a href="#contact" className="products-inline-link">
-            {language === 'hi' ? 'संपर्क करें →' : 'Contact Us →'}
-          </a>
-        </p>
       </div>
     </section>
   );
