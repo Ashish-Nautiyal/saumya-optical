@@ -222,9 +222,36 @@
   background: linear-gradient(135deg, var(--sky-dark) 0%, #0f766e 100%);
 }
 
+.mobile-lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 0.875rem;
+  padding: 0.875rem 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all var(--transition);
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+.mobile-lang-toggle:hover {
+  color: var(--sky);
+  padding-left: 0.5rem;
+}
+
 @media (max-width: 992px) {
   .desktop-only {
     display: none !important;
+  }
+  
+  .desktop-lang {
+    display: none;
   }
   
   .mobile-menu-btn {
@@ -233,14 +260,6 @@
   
   .navbar-actions {
     gap: 0.4rem;
-  }
-  
-  .lang-toggle span {
-    display: none;
-  }
-  
-  .lang-toggle {
-    padding: 0.4rem;
   }
 }
 

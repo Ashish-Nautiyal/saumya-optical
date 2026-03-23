@@ -18,6 +18,10 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location]);
+
   const isActive = (path) => location.pathname === path;
 
   const navLinks = [
@@ -51,7 +55,7 @@ const Navbar = () => {
 
         <div className="navbar-actions">
           <button 
-            className="lang-toggle" 
+            className="lang-toggle desktop-lang" 
             onClick={toggleLanguage}
             aria-label="Toggle Language"
           >
@@ -81,6 +85,17 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
+          <button 
+            className="mobile-lang-toggle" 
+            onClick={() => {
+              toggleLanguage();
+              setIsMenuOpen(false);
+            }}
+            aria-label="Toggle Language"
+          >
+            <Globe size={18} />
+            <span>{language === 'en' ? 'हिन्दी' : 'EN'}</span>
+          </button>
         </div>
       </div>
     </nav>
